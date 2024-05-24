@@ -1,14 +1,14 @@
-package model
+package models
 
 import "github.com/charmbracelet/bubbles/textinput"
 
 type Bubbles struct {
-	textInput Component[textinput.Model]
+	TextInput Component[textinput.Model]
 }
 
 type Component[T any] struct {
-	component T
-	err       error
+	Component T
+	Err       error
 }
 
 func NewTextInput() Component[textinput.Model] {
@@ -19,13 +19,13 @@ func NewTextInput() Component[textinput.Model] {
 	ti.Width = 20
 
 	return Component[textinput.Model]{
-		component: ti,
-		err:       nil,
+		Component: ti,
+		Err:       nil,
 	}
 }
 
-func NewBubbles() Bubbles {
-	return Bubbles{
-		textInput: NewTextInput(),
+func NewBubbles() *Bubbles {
+	return &Bubbles{
+		TextInput: NewTextInput(),
 	}
 }

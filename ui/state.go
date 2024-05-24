@@ -1,15 +1,19 @@
 package ui
 
-import "tamochi-terminal/ui/internal/model"
+import "tamochi-terminal/ui/internal/models"
 
-type state struct {
-	user    model.User
-	bubbles model.Bubbles
+type State struct {
+	user     models.User
+	bubbles  models.Bubbles
+	screen   models.Screen
+	Terminal models.Terminal
 }
 
-func newTerminalState() state {
-	return state{
-		user:    model.NewUser(),
-		bubbles: model.NewBubbles(),
+func newTerminalState() State {
+	return State{
+		user:     *models.NewUser(),
+		bubbles:  *models.NewBubbles(),
+		screen:   *models.NewScreen(),
+		Terminal: *models.NewTerminal(),
 	}
 }
